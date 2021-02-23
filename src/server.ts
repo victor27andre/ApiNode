@@ -1,18 +1,11 @@
-import express, { request, response } from 'express';
+import 'reflect-metadata';
+import express from 'express';
+import "./database";
+import { router } from './routers';
 
 const app = express();
 
-// http://localhost:3333/users
-app.get("/users", (request, response) => {
-    return response.json({message: "hello!!"})
-})
-
-
-
-app.post("/", (request,response) => {
-    // recebeu dados para salvar
-    return response.json({massage: "salvo com sucesso!"})
-})
-
+app.use(express.json())
+app.use(router)
 
 app.listen(3333, () => console.log("Server is running"))
