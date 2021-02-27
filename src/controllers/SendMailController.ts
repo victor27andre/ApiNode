@@ -36,7 +36,6 @@ class SendMailController {
             survey_id
         })
         await surveysUsersRepository.save(surveyUser);
-
         // Enviar e-mail para o usuario
         return response.json(surveyUser);
 
